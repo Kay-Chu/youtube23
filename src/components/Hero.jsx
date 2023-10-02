@@ -1,6 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Navbar from './Navbar';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Sphere, MeshDistortMaterial} from "@react-three/drei";
+
 
 const Section = styled.div`
   height: 100vh;
@@ -90,7 +93,17 @@ const Hero = () => {
             <Button>Learn More</Button>
           </Left>
           <Right>
-            {/* 3d model */}
+            <Canvas>
+                <OrbitControls enableZoom={false} autoRotate={true}/>
+                <ambientLight intensity={3}></ambientLight>
+                <directionalLight position={[3,2,1]}></directionalLight>
+                <Sphere arg={[1,100,200]} scale={2.5}>
+                  <MeshDistortMaterial 
+                    color="#220736" attach="material" distort={0.5} speed={2}
+                  />
+                </Sphere>
+                
+            </Canvas>
             <Img src="./img/zoe.png"/>
           </Right>
         </Container>

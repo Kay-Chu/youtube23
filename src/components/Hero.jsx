@@ -9,6 +9,12 @@ const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
   display: flex;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
